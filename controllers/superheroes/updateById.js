@@ -3,8 +3,9 @@ const { NotFound } = require("http-errors");
 const { Superhero } = require("../../models");
 
 const updateById = async (req, res) => {
-  const { id } = req.params;
-  const data = await Superhero.findByIdAndUpdate(id, req.body, { new: true });
+  const { _id, nickname, real_name,origin_description, superpowers, catch_phrase, images } = req.body;
+  const newData = { nickname, real_name,origin_description, superpowers, catch_phrase, images }
+  const data = await Superhero.findByIdAndUpdate(_id, newData, { new: true });
   if (!data) {
     throw new NotFound(`Superhero with id=${id} not found`);
   }
