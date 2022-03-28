@@ -33,12 +33,15 @@ const superheros = Schema(
 );
 
 const joiSchema = Joi.object({
-  nickname: Joi.string().required(),
+  _id: Joi.string(),
+  nickname: Joi.string(),
   real_name: Joi.string(),
   origin_description: Joi.string(),
   superpowers: Joi.string(),
   catch_phrase: Joi.string(),
   images: Joi.array(),
+  createdAt: Joi.string(),
+  updatedAt: Joi.string(),
 });
 
 const Superhero = model("superhero", superheros);

@@ -4,6 +4,7 @@ const { Superhero } = require("../../models");
 
 const removeById = async (req, res) => {
   const { id } = req.params;
+  console.log(req.params)
   const data = await Superhero.findByIdAndRemove(id);
 
   if (!data) {

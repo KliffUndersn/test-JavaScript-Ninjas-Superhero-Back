@@ -7,7 +7,7 @@ const updateById = async (req, res) => {
   const newData = { nickname, real_name,origin_description, superpowers, catch_phrase, images }
   const data = await Superhero.findByIdAndUpdate(_id, newData, { new: true });
   if (!data) {
-    throw new NotFound(`Superhero with id=${id} not found`);
+    throw new NotFound(`Superhero with id=${_id} not found`);
   }
   res.json({
     status: "success",
